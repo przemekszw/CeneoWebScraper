@@ -1,0 +1,12 @@
+{% extends "layout.html.jinja" %}
+{% block content %}
+    <form method="POST", action="{{url_for('extract')}}">
+        <div class="mb-3">
+            <label for="product_id" class="form-label">Kod produktu</label>
+            <input type="text" class="form-control" id="product_id" name="product_id">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-success" value="Pobierz">
+        </div>     
+    </form>
+{% endblock %}

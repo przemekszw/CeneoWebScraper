@@ -8,13 +8,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="text-center">
+        <header class="text-center container">
             <h1>Ceneo Web Scraper</h1>
         </header>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Pobierz opinie</a>
+            <a class="navbar-brand" href="{{url_for('index')}}">Strona główna</a>
+                <a class="navbar-brand" href="{{url_for('extract')}}">Pobierz opinie</a>
                 <a class="navbar-brand" href="{{url_for('products')}}">Lista produktów</a>
+                <a class="navbar-brand" href="{{url_for('author')}}">O autorze</a>
             </div>            
         </nav>
         <div class="container">
@@ -29,6 +31,8 @@
                 </div>
             </div>
           </div>   
-          <footer>(c) Przemek Szwajcowski Uniwersytet Ekonimiczny w Krakowie</footer>                                   
+          <footer class="text-center container">
+            <p>&copy; Przemek Szwajcowski Uniwersytet Ekonimiczny w Krakowie</p>
+          </footer>                                   
     </body>
 </html>
