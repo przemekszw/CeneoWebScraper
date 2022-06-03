@@ -34,7 +34,11 @@ review_elements = {
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html.jinja")
+    return "Hello, World!FLASK"
+
+@app.route('/index')
+def cos():
+    return "Damian Bartkowski"
 
 @app.route('/extract/<product_id>')
 def extract(product_id):
