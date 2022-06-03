@@ -1,7 +1,14 @@
-{% extends "layout.html.jinja" %}
+{% extends "base.html.jinja" %}
 {% block content %}
-    <p>Dla produktu o identyfikatorze {{product_id}} dostępnych jest {{stats['reviews_count']}} opinii.
-    Dla {{stats['pros_count']}} opinii autorzy podali listę zalet, a dla {{stats['cons_count']}} listę wad.
-    Średnia ocena produktu to {{stats['product_rating']}}.<p>
-    <img src="/static/plots/{{product_id}}_recommendation.png" class="img-fluid">
-{% endblock %}
+    <h2>{{product_id}}</h2>
+    <ul class="list-group">
+        {% for key, value in stats.items() %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{key}}
+                <span class="badge bg-primary rounded-pill">{{value}}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <img src="/plots/{{product_id}}_recommendations.png" class="rounded float-start" alt="Rekomendacje">
+    <img src="/plots/{{product_id}}_stars.png" class="rounded float-start" alt="Oceny">
+{% endblock content %}
