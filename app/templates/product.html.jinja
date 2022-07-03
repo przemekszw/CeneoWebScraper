@@ -23,7 +23,57 @@
     <img src="/static/plots/{{product_id}}_recommendation.png" class="img-fluid">
 {% endblock %}
 {% block content %}
-    {% for table in tables %}
-        {{ table|safe }}
-    {% endfor %}
+
+
+
+ <main>
+    <div class="container mt-5 mb-3">
+      <div class="row">
+
+        <table id="example" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>author</th>
+              <th>recomendation</th>
+              <th>stars</th>
+              <th>content</th>
+              <th>purchase_date</th>
+              <th>publish_date</th>
+              <th>useful</th>
+              <th>useless</th>
+ 
+            </tr>
+          </thead>
+          <tbody>
+            {% for opinion in opinions %}
+                <tr>
+                    <td> {{opinion[0]}} </td>
+                    <td> {{ "Polecam" if  opinion[1] == 1.0 else "Nie Polecam"  }} </td>
+                    <td> {{opinion[2]}} </td>
+                    <td> {{opinion[3]}}</td>
+                    <td> {{opinion[4]}} </td>
+                    <td> {{opinion[5]}} </td>
+                    <td> {{opinion[6]}} </td>
+                    <td> {{opinion[7]}} </td>
+                </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+
+        </div>
+      </div>
+  </main>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#example').DataTable({
+        "scrollX": true
+      });
+    });
+
+  </script>
+ 
 {% endblock %}

@@ -96,4 +96,24 @@ def product(product_id):
     recommendations.plot.pie()
     plt.savefig(f"app/static/plots/{product_id}_recommendation.png")
     plt.close()
-    return render_template("product.html.jinja", stats=stats, product_id=product_id, tables=[reviews.to_html(classes='table table-sm table-hover table-bordered', header="true", table_id="reviews")])
+
+    print(reviews.to_numpy()[0])
+
+    return render_template("product.html.jinja", stats=stats, product_id=product_id,  opinions=reviews.to_numpy(), tables=[reviews.to_html(classes='table table-sm table-hover table-bordered', header="true", table_id="reviews")])
+
+
+
+
+# a = [
+#     'Artur',
+#      1.0,
+#     5.0,
+#  'W zupełności wystarczy dla dzieci i okazjonalnych graczy',
+#   '2020-12-31',
+#  '2020-12-26',
+#   8,
+#     4,
+# ['cicha', 'grywalność', 'jakość', 'możliwości', 'szybkość działania', 'xbox game pass']
+# [],
+# 13690944
+# ]
